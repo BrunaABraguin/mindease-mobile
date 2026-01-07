@@ -1,48 +1,44 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
-interface NavigationProps {
-  currentPage: string;
-  onNavigate: (page: string) => void;
-}
+export const Navigation: React.FC = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
 
-export const Navigation: React.FC<NavigationProps> = ({ currentPage, onNavigate }) => {
   return (
     <nav className={styles.nav} role="navigation" aria-label="Main navigation">
       <div className={styles['nav-container']}>
-        <a href="#" className={styles.brand} onClick={(e) => { e.preventDefault(); onNavigate('dashboard'); }}>
+        <Link to="/dashboard" className={styles.brand}>
           🧠 MindEase
-        </a>
+        </Link>
         <ul className={styles['nav-links']}>
           <li>
-            <a
-              href="#dashboard"
-              className={`${styles['nav-link']} ${currentPage === 'dashboard' ? styles.active : ''}`}
-              onClick={(e) => { e.preventDefault(); onNavigate('dashboard'); }}
-              aria-current={currentPage === 'dashboard' ? 'page' : undefined}
+            <Link
+              to="/dashboard"
+              className={`${styles['nav-link']} ${currentPath === '/dashboard' ? styles.active : ''}`}
+              aria-current={currentPath === '/dashboard' ? 'page' : undefined}
             >
               📊 Dashboard
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#tasks"
-              className={`${styles['nav-link']} ${currentPage === 'tasks' ? styles.active : ''}`}
-              onClick={(e) => { e.preventDefault(); onNavigate('tasks'); }}
-              aria-current={currentPage === 'tasks' ? 'page' : undefined}
+            <Link
+              to="/tasks"
+              className={`${styles['nav-link']} ${currentPath === '/tasks' ? styles.active : ''}`}
+              aria-current={currentPath === '/tasks' ? 'page' : undefined}
             >
               ✓ Tasks
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#profile"
-              className={`${styles['nav-link']} ${currentPage === 'profile' ? styles.active : ''}`}
-              onClick={(e) => { e.preventDefault(); onNavigate('profile'); }}
-              aria-current={currentPage === 'profile' ? 'page' : undefined}
+            <Link
+              to="/profile"
+              className={`${styles['nav-link']} ${currentPath === '/profile' ? styles.active : ''}`}
+              aria-current={currentPath === '/profile' ? 'page' : undefined}
             >
               ⚙️ Profile
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { UserProvider } from './presentation/contexts/UserContext';
 import { TaskProvider } from './presentation/contexts/TaskContext';
 import { Navigation } from './presentation/components/Navigation/Navigation';
@@ -8,30 +8,23 @@ import { Profile } from './presentation/components/Profile/Profile';
 import './presentation/styles/globals.css';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('dashboard');
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'dashboard':
-        return <Dashboard />;
-      case 'tasks':
-        return <TaskOrganizer />;
-      case 'profile':
-        return <Profile />;
-      default:
-        return <Dashboard />;
-    }
-  };
-
   return (
-    <UserProvider>
-      <TaskProvider>
-        <div style={{ minHeight: '100vh' }}>
-          <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
-          {renderPage()}
-        </div>
-      </TaskProvider>
-    </UserProvider>
+    <BrowserRouter>
+      <UserProvider>
+        <TaskProvider>
+          <div style={{ minHeight: '100vh' }}>
+            <Navigation />
+            <Routes>
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/tasks" element={<TaskOrganizer />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="*" element={<Navigate to="/dashboard" replace />} />
+            </Routes>
+          </div>
+        </TaskProvider>
+      </UserProvider>
+    </BrowserRouter>
   );
 }
 
