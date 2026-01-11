@@ -179,7 +179,7 @@ const calmMode = {
 
 Antes de fazer commit, verifique:
 
-- [ ] ✅ Todas as cores vêm de `@/theme/colors`
+- [ ] ✅ Todas as cores vêm de `@/utils/theme`
 - [ ] ✅ Nenhuma cor hardcoded fora da paleta
 - [ ] ✅ Modos cognitivos implementados
 - [ ] ✅ Contraste adequado (mínimo 4.5:1)

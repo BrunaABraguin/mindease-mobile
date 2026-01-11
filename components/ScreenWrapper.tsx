@@ -1,5 +1,5 @@
 import { useTheme } from "@/hooks/useTheme";
-import { spacingY } from "@/utils/theme";
+import { spacingX } from "@/utils/theme";
 import React from "react";
 import { View } from "react-native";
 
@@ -15,7 +15,7 @@ const ScreenWrapper = ({ children }: ScreenWrapperProps) => {
       style={{
         flex: 1,
         backgroundColor: colors.background.primary,
-        padding: spacingY._25,
+        padding: spacingX._25,
       }}
     >
       {children}
