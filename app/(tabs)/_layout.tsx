@@ -1,11 +1,10 @@
 import {
-  HabitsIcon,
-  MissionsIcon,
-  ProfileIcon,
-  TaskListIcon,
-  TimerIcon,
+  HabitsTab,
+  MissionsTab,
+  ProfileTab,
+  TaskListTab,
+  TimerTab,
 } from "@/components/tab-icons";
-import { TabBarIconWrapper } from "@/components/TabBarIconWrapper";
 import { useTheme } from "@/hooks/useTheme";
 import { fontSize, spacingY } from "@/utils/theme";
 import { Tabs } from "expo-router";
@@ -33,13 +32,7 @@ export default function TabsLayout() {
         name="timer"
         options={{
           title: "Timer",
-          tabBarIcon: (props) => (
-            <TabBarIconWrapper
-              Icon={TimerIcon}
-              {...props}
-              colors={colors as any}
-            />
-          ),
+          tabBarIcon: TimerTab({ colors }),
         }}
       />
 
@@ -47,13 +40,7 @@ export default function TabsLayout() {
         name="habits"
         options={{
           title: "Hábitos",
-          tabBarIcon: (props) => (
-            <TabBarIconWrapper
-              Icon={HabitsIcon}
-              {...props}
-              colors={colors as any}
-            />
-          ),
+          tabBarIcon: HabitsTab({ colors }),
         }}
       />
 
@@ -61,13 +48,7 @@ export default function TabsLayout() {
         name="task-list"
         options={{
           title: "Tarefas",
-          tabBarIcon: (props) => (
-            <TabBarIconWrapper
-              Icon={TaskListIcon}
-              {...props}
-              colors={colors as any}
-            />
-          ),
+          tabBarIcon: TaskListTab({ colors }),
         }}
       />
 
@@ -75,13 +56,7 @@ export default function TabsLayout() {
         name="missions"
         options={{
           title: "Missões",
-          tabBarIcon: (props) => (
-            <TabBarIconWrapper
-              Icon={MissionsIcon}
-              {...props}
-              colors={colors as any}
-            />
-          ),
+          tabBarIcon: MissionsTab({ colors }),
         }}
       />
 
@@ -89,13 +64,7 @@ export default function TabsLayout() {
         name="profile"
         options={{
           title: "Perfil",
-          tabBarIcon: (props) => (
-            <TabBarIconWrapper
-              Icon={ProfileIcon}
-              {...props}
-              colors={colors as any}
-            />
-          ),
+          tabBarIcon: ProfileTab({ colors }),
         }}
       />
     </Tabs>
