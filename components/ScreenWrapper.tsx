@@ -1,5 +1,6 @@
 import { useTheme } from "@/hooks/useTheme";
 import { spacingX } from "@/utils/theme";
+import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { View } from "react-native";
 
@@ -8,18 +9,36 @@ interface ScreenWrapperProps {
 }
 
 const ScreenWrapper = ({ children }: ScreenWrapperProps) => {
-  const { colors } = useTheme();
+  const { colors, mode } = useTheme();
+
+  const lightGradient = [
+    colors.background.info,
+    colors.background.focus,
+    colors.background.secondary,
+  ] as const;
+
+  const darkGradient = [
+    colors.background.primary,
+    colors.background.surface,
+    colors.background.card,
+  ] as const;
 
   return (
-    <View
+    <LinearGradient
+      colors={mode === "dark" ? darkGradient : lightGradient}
       style={{
         flex: 1,
-        backgroundColor: colors.background.primary,
-        padding: spacingX._25,
       }}
     >
-      {children}
-    </View>
+      <View
+        style={{
+          flex: 1,
+          padding: spacingX._25,
+        }}
+      >
+        {children}
+      </View>
+    </LinearGradient>
   );
 };
 

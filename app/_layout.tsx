@@ -8,7 +8,16 @@ export default function RootLayout() {
   return (
     <>
       <StatusBar style={scheme === "dark" ? "light" : "dark"} />
-      <Stack screenOptions={{ headerShown: false }} />
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          animation: "ios_from_right",
+          gestureEnabled: true,
+          animationTypeForReplace: "pop",
+        }}
+      >
+        <Stack.Screen name="(tabs)" options={{ presentation: "card" }} />
+      </Stack>
     </>
   );
 }

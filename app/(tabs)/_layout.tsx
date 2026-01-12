@@ -21,7 +21,7 @@ export default function TabsLayout() {
           borderTopColor: colors.border.light,
           height: spacingY._60,
         },
-        tabBarActiveTintColor: colors.accent.primary,
+        tabBarActiveTintColor: colors.graphic.gold,
         tabBarInactiveTintColor: colors.text.muted,
         tabBarLabelStyle: {
           fontSize: fontSize._12,
@@ -31,7 +31,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="timer"
         options={{
-          title: "Timer",
+          title: "Pomodoro",
           tabBarIcon: TimerTab({ colors }),
         }}
       />

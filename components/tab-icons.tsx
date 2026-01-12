@@ -1,6 +1,6 @@
 import { TabIconComponent } from "@/utils/types";
 
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { TabBarIconWrapper } from "./TabBarIconWrapper";
 
 export const HabitsIcon: TabIconComponent = ({
@@ -12,7 +12,7 @@ export const HabitsIcon: TabIconComponent = ({
   <Ionicons
     name="checkmark-done-circle"
     size={size}
-    color={focused ? colors.semantic.success : color}
+    color={focused ? colors.graphic.gold : color}
   />
 );
 
@@ -22,10 +22,10 @@ export const TimerIcon: TabIconComponent = ({
   focused,
   colors,
 }) => (
-  <Ionicons
-    name="alarm"
+  <MaterialIcons
+    name="timer"
     size={size}
-    color={focused ? colors.cognitive.timerFocus : color}
+    color={focused ? colors.graphic.gold : color}
   />
 );
 
@@ -38,7 +38,7 @@ export const MissionsIcon: TabIconComponent = ({
   <Ionicons
     name="book"
     size={size}
-    color={focused ? colors.graphic.pink : color}
+    color={focused ? colors.graphic.gold : color}
   />
 );
 
@@ -51,7 +51,7 @@ export const TaskListIcon: TabIconComponent = ({
   <Ionicons
     name="sparkles"
     size={size}
-    color={focused ? colors.semantic.warning : color}
+    color={focused ? colors.graphic.gold : color}
   />
 );
 
@@ -64,7 +64,7 @@ export const ProfileIcon: TabIconComponent = ({
   <Ionicons
     name="person"
     size={size}
-    color={focused ? colors.accent.secondary : color}
+    color={focused ? colors.graphic.gold : color}
   />
 );
 
